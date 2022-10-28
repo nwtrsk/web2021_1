@@ -3,9 +3,13 @@ const db = new sqlite3.Database('test3.db');
 
 
 let schema = `
-create table member(
+create table single(
   id integer primary key,
-  name text not null
+  シングル名 text not null,
+  発売日 text not null,
+  初日売上 text not null,
+  初週売上 text not null,
+  センター integer not null
 );
 `
 

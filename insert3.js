@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('test3.db');
 
 let sql = `
-insert into member ("名前", "期生", "生年月日", "出身", "選抜数", "参加シングル数") values ("生駒里奈","1", "1995年12月29日", "秋田", "20", "20");
+insert into single ("シングル名", "発売日", "初日売上", "初週売上", "センター") values ("おいでシャンプー", "2012年5月2日", "11.1万枚", "15.6万枚", 3);
 `
 
 db.serialize( () => {
