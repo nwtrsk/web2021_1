@@ -80,6 +80,21 @@ app.post("/insert3",(req,res) => {
   console.log(req.body);
 });
 
+app.post("/insert2",(req,res) => {
+  let sql = 'insert into example(名前,期生,生年月日,出身,選抜数,参加シングル数)values("' + req.body.name + '",' + req.body.date +',' +req.body.datear +','+req.body.weekear + ','+req.body.center+');'
+  console.log(sql);
+  db.serialize(() => {
+    db.run(sql,(erroe,row) =>{
+      console.log(error);
+      if(error){
+        res.render('show2',{mes:"エラーです"});
+      }
+      res.render('show2',{mes:"成功です"});
+    });
+  });
+  console.log(req.body);
+});
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
 app.use(function(req, res, next) {
   res.status(404).send('ページが見つかりません');
