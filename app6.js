@@ -7,6 +7,9 @@ const db = new sqlite3.Database('test.db');
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 
+app.use(express.json())
+app.use(express.urlencoded({extend: true}));
+
 app.get("/", (req, res) => {
   const message = "Hello world";
   res.render('show', {mes:message});

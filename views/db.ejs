@@ -1,0 +1,20 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show message</title>
+  </head>
+  <body>
+    <h2><%= data[0]. %>の詳細</h2>
+    <table>
+      <% for(let row of data){%>
+        <tr><td>id</td><td><%= row.id%></td></tr>
+        <tr><td>シングル名</td><td><%= row.シングル名%></td></tr>
+        <tr><td>発売日</td><td><%= row.発売日%></td></tr>
+        <tr><td>初日売上</td><td><%= row.初日売上%></td></tr>
+        <tr><td>初週売上</td><td><%= row.初週売上%></td></tr>
+        <tr><td>センター</td><td><%= row.センター%></td></tr>
+        }
+    </table>
+  </body>
+</html>
