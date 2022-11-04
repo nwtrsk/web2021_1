@@ -53,9 +53,6 @@ app.get("/top", (req, res) => {
         })
     })
 })
-app.use(function(req, res, next) {
-  res.status(404).send('ページが見つかりません');
-});
 
 app.get("/db/:id", (req,res) =>{
   db.serialize( ()=>{
@@ -68,7 +65,7 @@ app.get("/db/:id", (req,res) =>{
   })
 })
 
-app.post("/insert",(req,res) => {
+app.post("/insert3",(req,res) => {
   let sql = 'insert into example(シングル名,発売日,初日売上,初週売上,センター)values("' + req.body.name + '",' + req.body.date +',' +req.body.datear +','+req.body.weekear + ','+req.body.center+');'
   console.log(sql);
   db.serialize(() => {
@@ -84,3 +81,6 @@ app.post("/insert",(req,res) => {
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
+app.use(function(req, res, next) {
+  res.status(404).send('ページが見つかりません');
+});
