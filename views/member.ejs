@@ -7,17 +7,26 @@
 <body>
   <h2>メンバーの情報</h2>
   <table>
-      <% for( let row of data ) { %>
-        <tr>
-          <td><%= row.id %></td>
-          <td><%= row.名前 %></td>
-          <td><%= row.期生 %></td>
-          <td><%= row.生年月日 %></td>
-          <td><%= row.出身 %></td>
-          <td><%= row.選抜数 %></td>
-          <td><%= row.参加シングル数 %></td>
-        </tr>
-      <% } %>
+    <tr>
+      <td>id</td>
+      <td>名前</td>
+      <td>期生</td>
+      <td>生年月日</td>
+      <td>出身</td>     
+      <td>選抜数</td>
+      <td>参加シングル数</td>
+    </tr>
+    <% for( let row of data ) { %>
+      <tr>
+        <td><%= row.id %></td>
+        <td><%= row.名前 %></td>
+        <td><%= row.期生 %></td>
+        <td><%= row.生年月日 %></td>
+        <td><%= row.出身 %></td>
+        <td><%= row.選抜数 %></td>
+        <td><%= row.参加シングル数 %></td>
+      </tr>
+    <% } %>
   </table>
   <a href="/" class=button>戻る</a>
   <a href="/public/insert2.html" class=button>追加</a>
