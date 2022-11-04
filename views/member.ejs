@@ -1,0 +1,23 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
+<body>
+  <h2>メンバーの情報</h2>
+  <table>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.名前 %></td>
+          <td><%= row.期生 %></td>
+          <td><%= row.生年月日 %></td>
+          <td><%= row.出身 %></td>
+          <td><%= row.選抜数 %></td>
+          <td><%= row.参加シングル数 %></td>
+        </tr>
+      <% } %>
+  </table>
+</body>
+</html>

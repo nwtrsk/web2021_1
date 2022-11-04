@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('test2.db');
+const db = new sqlite3.Database('test3.db');
 
 let sql = `
 select id, "シングル名", "発売日", "初日売上", "初週売上", "センター" from single;

@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('test.db');
+const db = new sqlite3.Database('test3.db');
 
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
@@ -15,16 +15,28 @@ app.get("/", (req, res) => {
   res.render('show2', {mes:message});
 });
 
-app.get("/db", (req, res) => {
+app.get("/single", (req, res) => {
     db.serialize( () => {
         db.all("select id,シングル名,発売日,初日売上,初週売上,センター from single;", (error, row) => {
             if( error ) {
                 res.render('show2', {mes:"エラーです"});
             }
-            res.render('select5', {data:row});
+            res.render('single', {data:row});
         })
     })
 })
+
+app.get("/member", (req, res) => {
+    db.serialize( () => {
+        db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member;", (error, row) => {
+            if( error ) {
+                res.render('show2', {mes:"エラーです"});
+            }
+            res.render('member', {data:row});
+        })
+    })
+})
+
 app.get("/top", (req, res) => {
     //console.log(req.query.pop);    // ①
     let desc = "";
@@ -37,7 +49,7 @@ app.get("/top", (req, res) => {
                 res.render('show2', {mes:"エラーです"});
             }
             //console.log(data);    // ③
-            res.render('select', {data:data});
+            res.render('single', {data:data});
         })
     })
 })

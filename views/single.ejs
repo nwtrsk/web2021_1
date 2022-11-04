@@ -1,0 +1,22 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
+<body>
+  <h2>シングルの情報</h2>
+  <table>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.シングル名 %></td>
+          <td><%= row.発売日 %></td>
+          <td><%= row.初日売上 %></td>
+          <td><%= row.初週売上 %></td>
+          <td><%= row.センター %></td>
+        </tr>
+      <% } %>
+  </table>
+</body>
+</html>
