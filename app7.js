@@ -66,10 +66,10 @@ app.get("/db/:id", (req,res) =>{
 })
 
 app.post("/insert3",(req,res) => {
-  let sql = 'insert into example(シングル名,発売日,初日売上,初週売上,センター)values("' + req.body.name + '",' + req.body.date +',' +req.body.datear +','+req.body.weekear + ','+req.body.center+');'
+  let sql = 'insert into example(シングル名,発売日,初日売上,初週売上,センター)values("'+ req.body.name + '",'+ req.body.date + ',' + req.body.datear +','+req.body.weekear + ','+req.body.center+');'
   console.log(sql);
   db.serialize(() => {
-    db.run(sql,(erroe,row) =>{
+    db.run(sql,(error,row) =>{
       console.log(error);
       if(error){
         res.render('show2',{mes:"エラーです"});
