@@ -59,7 +59,7 @@ app.use(function(req, res, next) {
 
 app.get("/db/:id", (req,res) =>{
   db.serialize( ()=>{
-    db.all("select id,シングル名,発売日,センター from single where id=" + req.params.id + ";",(error,row) =>{
+    db.all("select id,シングル名,発売日,初日売上,初週売上,センター from single where id=" + req.params.id + ";",(error,row) =>{
       if(error){
         res.render('show2',{mes:"エラーです"});
       }
