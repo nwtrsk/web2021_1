@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 
 app.get("/single", (req, res) => {
     db.serialize( () => {
-        db.all("select single.id, シングル名, 発売日, 初日売上, 初週売上, 名前 from single inner join member on "センター"=member.id;", (error, row) => {
+        db.all("select single.id, シングル名, 発売日, 初日売上, 初週売上, センター from single;", (error, row) => {
             if( error ) {
                 res.render('show2', {mes:"エラーです"});
             }
