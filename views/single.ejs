@@ -22,11 +22,11 @@
         <td><%= row.発売日 %></td>
         <td><%= row.初日売上 %></td>
         <td><%= row.初週売上 %></td>
-        <td><%= row.センター %></td>
+        <td><a href="/member/:id"><%= row.センター %></a></td>
       </tr>
     <% } %>
   </table>
-  <a href="/" class=button>戻る</a>
-  <a href="/public/insert.html" class=button>追加</a>
+  <a href="/public/top.html">戻る</a>
+  <a href="/public/insert.html">追加</a>
 </body>
 </html>

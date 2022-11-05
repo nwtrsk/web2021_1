@@ -65,8 +65,8 @@ app.get("/db/:id", (req,res) =>{
   })
 })
 
-app.post("/insert3",(req,res) => {
-  let sql = 'insert into example(シングル名,発売日,初日売上,初週売上,センター)values("'+ req.body.name + '",'+ req.body.date + ',' + req.body.datear +','+req.body.weekear + ','+req.body.center+');'
+app.post("/single",(req,res) => {
+  let sql = 'insert into single(シングル名,発売日,初日売上,初週売上,センター)values("'+ req.body.name +'","'+ req.body.date +'","'+ req.body.datear +'","'+ req.body.weekear +'",'+ req.body.center +');'
   console.log(sql);
   db.serialize(() => {
     db.run(sql,(error,row) =>{
@@ -80,11 +80,11 @@ app.post("/insert3",(req,res) => {
   console.log(req.body);
 });
 
-app.post("/insert2",(req,res) => {
-  let sql = 'insert into example(名前,期生,生年月日,出身,選抜数,参加シングル数)values("' + req.body.name + '",' + req.body.date +',' +req.body.datear +','+req.body.weekear + ','+req.body.center+');'
+app.post("/member",(req,res) => {
+  let sql = 'insert into member(名前,期生,生年月日,出身,選抜数,参加シングル数)values("'+ req.body.name +'",' + req.body.period +',"'+ req.body.birth +'","'+ req.body.from +'",'+ req.body.selnum +','+ req.body.parnum +');'
   console.log(sql);
   db.serialize(() => {
-    db.run(sql,(erroe,row) =>{
+    db.run(sql,(error,row) =>{
       console.log(error);
       if(error){
         res.render('show2',{mes:"エラーです"});
