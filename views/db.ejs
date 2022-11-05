@@ -5,16 +5,17 @@
     <title>Show message</title>
   </head>
   <body>
-    <h2><%= data[0].single %>の詳細</h2>
+    <h2><%= data[0].member %>の詳細</h2>
     <table>
-      <% for(let row of data){%>
+      <% for(let row of data){ %>
         <tr><td>id</td><td><%= row.id %></td></tr>
-        <tr><td>シングル名</td><td><%= row.シングル名 %></td></tr>
-        <tr><td>発売日</td><td><%= row.発売日 %></td></tr>
-        <tr><td>初日売上</td><td><%= row.初日売上 %></td></tr>
-        <tr><td>初週売上</td><td><%= row.初週売上 %></td></tr>
-        <tr><td>センター</td><td><%= row.センター %></td></tr>
-        }
+        <tr><td>名前</td><td><%= row.名前 %></td></tr>
+        <tr><td>期生</td><td><%= row.期生 %></td></tr>
+        <tr><td>生年月日</td><td><%= row.生年月日 %></td></tr>
+        <tr><td>出身</td><td><%= row.出身 %></td></tr>
+        <tr><td>選抜数</td><td><%= row.選抜数 %></td></tr>
+        <tr><td>参加シングル数</td><td><%= row.参加シングル数 %></td></tr>
+       <% } %>
     </table>
   </body>
 </html>
