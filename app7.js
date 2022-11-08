@@ -65,7 +65,7 @@ app.get("/top", (req, res) => {
     })
 })
 
-app.get("/db2/:id", (req,res) => {
+app.get("/db2/3", (req,res) => {
   console.log(req.params);
   db.serialize( () => {
     db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id=" + req.params.id + ";",(error,row) => {
@@ -77,7 +77,7 @@ app.get("/db2/:id", (req,res) => {
   })
 })
 
-app.post("/single",(req,res) => {
+app.post("/singleadd",(req,res) => {
   let sql = 'insert into single(シングル名,発売日,初日売上,初週売上,センター)values("'+ req.body.name +'","'+ req.body.date +'","'+ req.body.datear +'","'+ req.body.weekear +'",'+ req.body.center +');'
   console.log(sql);
   db.serialize(() => {
@@ -92,7 +92,7 @@ app.post("/single",(req,res) => {
   console.log(req.body);
 });
 
-app.post("/member",(req,res) => {
+app.post("/memberadd",(req,res) => {
   let sql = 'insert into member(名前,期生,生年月日,出身,選抜数,参加シングル数)values("'+ req.body.name +'",' + req.body.period +',"'+ req.body.birth +'","'+ req.body.from +'",'+ req.body.selnum +','+ req.body.parnum +');'
   console.log(sql);
   db.serialize(() => {
