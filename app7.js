@@ -65,7 +65,8 @@ app.get("/top", (req, res) => {
     })
 })
 
-app.get("/db2/:id", (req,res) =>{
+app.get("/db2/:id", (req,res) => {
+  console.log(req.params);
   db.serialize( () => {
     db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id=" + req.params.id + ";",(error,row) => {
       if(error){
@@ -106,7 +107,7 @@ app.post("/member",(req,res) => {
   console.log(req.body);
 });
 
-app.listen(8080, () => console.log("Example app listening on port 8080!"));
+app.listen(80, () => console.log("Example app listening on port 80!"));
 app.use(function(req, res, next) {
   res.status(404).send('ページが見つかりません');
 });
