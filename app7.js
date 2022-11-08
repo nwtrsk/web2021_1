@@ -54,20 +54,9 @@ app.get("/top", (req, res) => {
     })
 })
 
-app.get("/db", (req, res) => {
-  db.serialize( () => {
-    db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member;", (error, row) => {
-      if( error ) {
-        res.render('show2', {mes:"エラーです"});
-      }
-      res.render('member', {data:row});
-    })
-  })
-})
-
 app.get("/db/:id", (req,res) =>{
-  db.serialize( ()=>{
-    db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id=" + req.params.id + ";",(error,row) =>{
+  db.serialize( () => {
+    db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id =" + req.params.id + ";",(error,row) => {
       if(error){
         res.render('show2',{mes:"エラーです"});
       }
