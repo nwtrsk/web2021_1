@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('test3.db');
 
 let sql = `
-select id, "名前", "期生", "生年月日", "出身", "選抜数", "参加シングル数" from member;
+select id, 名前, 期生, 生年月日, 出身, 選抜数, 参加シングル数 from member;
 `
 
 db.serialize( () => {

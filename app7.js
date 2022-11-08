@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 
 app.get("/single", (req, res) => {
     db.serialize( () => {
-        db.all("select single.id, シングル名, 発売日, 初日売上, 初週売上, センター from single;", (error, row) => {
+        db.all("select single.id, シングル名, 発売日, 初日売上, 初週売上, センター from single ;", (error, row) => {
             if( error ) {
                 res.render('show2', {mes:"エラーです"});
             }
@@ -34,6 +34,17 @@ app.get("/member", (req, res) => {
             }
             res.render('member', {data:row});
         })
+    })
+})
+
+app.get("/db", (req, res) => {
+    db.serialize( () => {
+      db.all("select id,シングル名,発売日,初日売上,初週売上,名前 inner join member on single.センター=member.id;", (error, row) => {
+        if( error ) {
+          res.render('show2', {mes:"エラーです"});
+        }
+        res.render('db', {data:row});
+      })
     })
 })
 
@@ -56,7 +67,7 @@ app.get("/top", (req, res) => {
 
 app.get("/db/:id", (req,res) =>{
   db.serialize( () => {
-    db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id =" + req.params.id + ";",(error,row) => {
+    db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id ="  + req.params.id + ";",(error,row) => {
       if(error){
         res.render('show2',{mes:"エラーです"});
       }
