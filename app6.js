@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.render('show', {mes:message});
 });
 
-app.get("/db", (req, res) => {
+app.get("/dbb", (req, res) => {
     db.serialize( () => {
         db.all("select id, 都道府県, 人口 from example;", (error, row) => {
             if( error ) {
@@ -29,7 +29,7 @@ app.get("/top", (req, res) => {
     //console.log(req.query.pop);    // ①
     let desc = "";
     if( req.query.desc ) desc = " desc";
-    let sql = "select id, 都道府県, 人口 from example order by 人口" + desc + " limit " + req.query.pop + ";";
+    let sql = "select id, 都道府県,人口 from example order by 人口" + desc + " limit " + req.query.pop + ";";
     //console.log(sql);    // ②
     db.serialize( () => {
         db.all(sql, (error, data) => {

@@ -4,27 +4,32 @@
   <meta charset="utf-8">
   <title>Show message</title>
 </head>
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
 <body>
-  <h2>センターの情報</h2>
+  <h2>シングルごとの売上</h2>
   <table>
     <tr>
       <td>id</td>
-      <td>名前</td>
-      <td>期生</td>
-      <td>生年月日</td>
-      <td>出身</td>     
-      <td>選抜数</td>
-      <td>参加シングル数</td>
+      <td>シングル名</td>
+      <td>発売日</td>
+      <td>初日売上</td>
+      <td>初週売上</td>
+      <td>センター</td>
     </tr>
-    <% for(let row of data) { %>
-      <tr>
-        <td><%= row.id %></td>
-        <td><%= row.シングル名 %></td>
-        <td><%= row.発売日 %></td>
-        <td><%= row.初日売上 %></td>
-        <td><%= row.初週売上 %></td>
-        <td><%= row.名前 %></td>
-      </tr>
+      <% for( let row of data ) { %>
+        <tr>
+            <td><%= row.id %></td>
+            <td><%= row.シングル名 %></td>
+            <td><%= row.発売日 %></td>
+            <td><%= row.初日売上 %></td>
+            <td><%= row.初週売上 %></td>
+            <td><%= row.センター %></td>
+        </tr>
       <% } %>
   </table>
 </body>

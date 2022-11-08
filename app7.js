@@ -52,7 +52,7 @@ app.get("/top", (req, res) => {
     //console.log(req.query.pop);    // ①
     let desc = "";
     if( req.query.desc ) desc = " desc";
-    let sql = "select id, シングル名, センター from single order by 初週売上" + desc + " limit " + req.query.pop + ";";
+    let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by 初週売上" + desc + " limit " + req.query.pop + ";";
     //console.log(sql);    // ②
     db.serialize( () => {
         db.all(sql, (error, data) => {
@@ -60,18 +60,18 @@ app.get("/top", (req, res) => {
                 res.render('show2', {mes:"エラーです"});
             }
             //console.log(data);    // ③
-            res.render('single', {data:data});
+            res.render('db', {data:data});
         })
     })
 })
 
-app.get("/db/:id", (req,res) =>{
+app.get("/db2/:id", (req,res) =>{
   db.serialize( () => {
     db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id ="  + req.params.id + ";",(error,row) => {
       if(error){
         res.render('show2',{mes:"エラーです"});
       }
-      res.render('db',{data:row});
+      res.render('db2',{data:row});
     })
   })
 })
