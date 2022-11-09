@@ -1,11 +1,20 @@
 .nogi{
-  color: #9634f9;
+  color: #a600ff;
+  font-size: 20px;
+}
+.official{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.flex{
+  display: flex;
 }
 .slide {
   position: relative;
   overflow: hidden;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 .slide img {
   display: block;
