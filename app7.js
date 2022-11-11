@@ -65,6 +65,23 @@ app.get("/top", (req, res) => {
     })
 })
 
+app.get("/sear", (req, res) => {
+    //console.log(req.query.pop);    // ①
+    let desc = "";
+    if( req.query.desc ) desc = " desc";
+    let sql = "select id, 名前, 期生, 生年月日, 出身, 選抜数, 参加シングル数 from member " + desc + " limit " + req.query.pop + ";";
+    //console.log(sql);    // ②
+    db.serialize( () => {
+        db.all(sql, (error, data) => {
+            if( error ) {
+                res.render('show2', {mes:"エラーです"});
+            }
+            //console.log(data);    // ③
+            res.render('db', {data:data});
+        })
+    })
+})
+
 app.get("/db2/:id", (req,res) => {
   console.log(req.params);
   db.serialize( () => {

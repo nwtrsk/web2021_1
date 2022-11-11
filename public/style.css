@@ -1,6 +1,10 @@
 .nogi{
   color: #a600ff;
-  font-size: 20px;
+  font-size: 25px;
+}
+.title{
+  color: #da7eed;
+  font-size: 18px;
 }
 .official{
   width: 100px;
