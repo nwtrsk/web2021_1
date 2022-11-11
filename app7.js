@@ -37,21 +37,10 @@ app.get("/member", (req, res) => {
     })
 })
 
-app.get("/db", (req, res) => {
-    db.serialize( () => {
-      db.all("select id,シングル名,発売日,初日売上,初週売上,名前 inner join member on single.センター=member.id;", (error, row) => {
-        if( error ) {
-          res.render('show2', {mes:"エラーです"});
-        }
-        res.render('db', {data:row});
-      })
-    })
-})
-
 app.get("/top", (req, res) => {
     //console.log(req.query.pop);    // ①
     let desc = "";
-    if( req.query.desc ) desc = " desc";
+    if( req.query.desc ) desc = "desc";
     let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by 初週売上" + desc + " limit " + req.query.pop + ";";
     //console.log(sql);    // ②
     db.serialize( () => {
@@ -65,21 +54,16 @@ app.get("/top", (req, res) => {
     })
 })
 
-app.get("/sear", (req, res) => {
-    //console.log(req.query.pop);    // ①
-    let desc = "";
-    if( req.query.desc ) desc = " desc";
-    let sql = "select id, 名前, 期生, 生年月日, 出身, 選抜数, 参加シングル数 from member " + desc + " limit " + req.query.pop + ";";
-    //console.log(sql);    // ②
-    db.serialize( () => {
-        db.all(sql, (error, data) => {
-            if( error ) {
-                res.render('show2', {mes:"エラーです"});
-            }
-            //console.log(data);    // ③
-            res.render('db', {data:data});
-        })
+app.get("/sear", (req,res) => {
+  console.log(req.params);
+  db.serialize( () => {
+    db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where 期生 =" + req.query.num + ";",(error,row) => {
+      if(error){
+        res.render('show2',{mes:"エラーです"});
+      }
+      res.render('db2',{data:row});
     })
+  })
 })
 
 app.get("/db2/:id", (req,res) => {
