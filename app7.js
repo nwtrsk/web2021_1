@@ -66,6 +66,18 @@ app.get("/sear", (req,res) => {
   })
 })
 
+app.get("/db/:id", (req,res) => {
+  console.log(req.params);
+  db.serialize( () => {
+    db.all("select id,シングル名,発売日,初日売上,初週売上,センター from single where id =" + req.params.id + ";",(error,row) => {
+      if(error){
+        res.render('show2',{mes:"エラーです"});
+      }
+      res.render('db',{data:row});
+    })
+  })
+})
+
 app.get("/db2/:id", (req,res) => {
   console.log(req.params);
   db.serialize( () => {
