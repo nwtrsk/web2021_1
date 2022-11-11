@@ -12,14 +12,14 @@ app.use(express.urlencoded({extend: true}));
 
 app.get("/", (req, res) => {
   const message = "こんにちは乃木坂46です";
-  res.render('show2', {mes:message});
+  res.render('show', {mes:message});
 });
 
 app.get("/single", (req, res) => {
     db.serialize( () => {
         db.all("select single.id, シングル名, 発売日, 初日売上, 初週売上, センター from single ;", (error, row) => {
             if( error ) {
-                res.render('show2', {mes:"エラーです"});
+                res.render('show', {mes:"エラーです"});
             }
             res.render('single', {data:row});
         })
@@ -30,7 +30,7 @@ app.get("/member", (req, res) => {
     db.serialize( () => {
         db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member;", (error, row) => {
             if( error ) {
-                res.render('show2', {mes:"エラーです"});
+                res.render('show', {mes:"エラーです"});
             }
             res.render('member', {data:row});
         })
@@ -46,7 +46,7 @@ app.get("/top", (req, res) => {
     db.serialize( () => {
         db.all(sql, (error, data) => {
             if( error ) {
-                res.render('show2', {mes:"エラーです"});
+                res.render('show', {mes:"エラーです"});
             }
             //console.log(data);    // ③
             res.render('db', {data:data});
@@ -59,7 +59,7 @@ app.get("/sear", (req,res) => {
   db.serialize( () => {
     db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where 期生 =" + req.query.num + ";",(error,row) => {
       if(error){
-        res.render('show2',{mes:"エラーです"});
+        res.render('show',{mes:"エラーです"});
       }
       res.render('db2',{data:row});
     })
@@ -71,7 +71,7 @@ app.get("/db/:id", (req,res) => {
   db.serialize( () => {
     db.all("select id,シングル名,発売日,初日売上,初週売上,センター from single where id =" + req.params.id + ";",(error,row) => {
       if(error){
-        res.render('show2',{mes:"エラーです"});
+        res.render('show',{mes:"エラーです"});
       }
       res.render('db',{data:row});
     })
@@ -83,7 +83,7 @@ app.get("/db2/:id", (req,res) => {
   db.serialize( () => {
     db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member where id =" + req.params.id + ";",(error,row) => {
       if(error){
-        res.render('show2',{mes:"エラーです"});
+        res.render('show',{mes:"エラーです"});
       }
       res.render('db2',{data:row});
     })
@@ -97,9 +97,9 @@ app.post("/singleadd",(req,res) => {
     db.run(sql,(error,row) =>{
       console.log(error);
       if(error){
-        res.render('show2',{mes:"エラーです"});
+        res.render('show',{mes:"エラーです"});
       }
-      res.render('show2',{mes:"成功です"});
+      res.render('show',{mes:"成功です"});
     });
   });
   console.log(req.body);
@@ -112,9 +112,9 @@ app.post("/memberadd",(req,res) => {
     db.run(sql,(error,row) =>{
       console.log(error);
       if(error){
-        res.render('show2',{mes:"エラーです"});
+        res.render('show',{mes:"エラーです"});
       }
-      res.render('show2',{mes:"成功です"});
+      res.render('show',{mes:"成功です"});
     });
   });
   console.log(req.body);
