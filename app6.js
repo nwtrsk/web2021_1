@@ -41,7 +41,7 @@ app.get("/top", (req, res) => {
     //console.log(req.query.pop);    // ①
     let desc = "";
     if( req.query.desc ) desc = " desc";
-    let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by 初日売上" + desc + " limit " + req.query.pop + ";";
+    let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by 初週売上" + desc + " limit " + req.query.pop + ";";
     //console.log(sql);    // ②
     db.serialize( () => {
         db.all(sql, (error, data) => {
