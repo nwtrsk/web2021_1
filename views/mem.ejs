@@ -1,0 +1,35 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
+<body>
+  <h2>メンバーの情報</h2>
+  <table>
+    <tr>
+      <td>id</td>
+      <td>名前</td>
+      <td>期生</td>
+      <td>生年月日</td>
+      <td>出身</td>
+      <td>選抜割合</td>
+    </tr>
+    <% for(let row of data) { %>
+      <tr><td><%= row.id %></td>
+      <td><%= row.名前 %></td>
+      <td><%= row.期生 %></td>
+      <td><%= row.生年月日 %></td>
+      <td><%= row.出身 %></td>
+      <td><%= row.result %></td>
+    <% } %>
+  </table>
+  <a href="/public/top.html" class=button>戻る</a>
+</body>
+</html>
