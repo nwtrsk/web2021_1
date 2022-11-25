@@ -1,6 +1,32 @@
 .title{
-  color: #da7eed;
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  padding: 0 40px 0 18px;
   font-size: 18px;
+  background: #e9c7ff;
+  color: #44657e;
+  bix-sizing: border-box;
+}
+.title:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+.title:after {
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+.nogi{
+  font-size: 18px;
+  color: #325c77;
 }
 .official{
   width: 90px;
