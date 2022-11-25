@@ -1,14 +1,10 @@
-.nogi{
-  color: #a600ff;
-  font-size: 25px;
-}
 .title{
   color: #da7eed;
   font-size: 18px;
 }
 .official{
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
 }
 .flex{
@@ -40,4 +36,49 @@
   18% {left: 0;}
   20% {left: -100%;}
   100% {left: -100%;}
+}
+
+.btn-squre1{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #db94f5;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-squre1: active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  boeder-buttom: none;
+}
+
+.btn-squre2{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #9594f5;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-squre2: active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  boeder-buttom: none;
+}
+
+.btn-squre3{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #94cbf5;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-squre3: active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  boeder-buttom: none;
 }
