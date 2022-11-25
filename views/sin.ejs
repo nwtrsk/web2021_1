@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Show message</title>
+</head>
+<body>
+  <h2>シングルの情報</h2>
+  <table>
+    <tr>
+      <td>id</td>
+      <td>シングル名</td>
+      <td>発売日</td>
+      <td>売上割合</td>
+      <td>センター</td>
+    </tr>
+    <% for(let row of data) { %>
+      <tr><td><%= row.id %></td>
+      <td><%= row.シングル名 %></td>
+      <td><%= row.発売日 %></td>
+      <td><%= row.result %></td>
+      <td><%= row.センター %></td>
+    <% } %>
+  </table>
+  <a href="/public/top.html" class=button>戻る</a>
+</body>
+</html>
