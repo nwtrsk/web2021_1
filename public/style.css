@@ -1,32 +1,21 @@
 .title{
-  display: inline-block;
-  position: relative;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  padding: 0 40px 0 18px;
-  font-size: 18px;
-  background: #e9c7ff;
-  color: #44657e;
-  bix-sizing: border-box;
+  padding: 0.25em 0.5em;
+  color: #31323a;
+  background: #dbc7ff;
+  border-left: solid 5px #627295;
 }
-.title:after {
-  position: absolute;
-  content: '';
-  width: 0px;
-  height: 0px;
-  z-index: 1;
+.nogi {
+  padding: 0.2em 0.5em;
+  margin: 0.8em 1em;
+  color: #363678;
+  box-shadow: 0px 0px 0px 10px #ebdcbd;
+  border: dashed 2px white;
+  width: 330px;
+  height: 220px;
 }
-.title:after {
-  top: 0;
-  right: 0;
-  border-width: 30px 15px 30px 0px;
-  border-color: transparent #fff transparent transparent;
-  border-style: solid;
-}
-.nogi{
-  font-size: 18px;
-  color: #325c77;
+.nogi p {
+    margin: 0; 
+    padding: 0;
 }
 .official{
   width: 90px;
@@ -39,8 +28,8 @@
 .slide {
   position: relative;
   overflow: hidden;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
 }
 .slide img {
   display: block;
@@ -107,4 +96,53 @@
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   boeder-buttom: none;
+}
+.titlesin {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  padding: 0 40px 0 18px;
+  font-size: 18px;
+  background: #db94f5;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+.titlesin:after {
+  position: absolute;
+  content: '';
+  z-index: 1;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+
+.titlemem {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  padding: 0 40px 0 18px;
+  font-size: 18px;
+  background: #9594f5;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+.titlemem:after {
+  position: absolute;
+  content: '';
+  z-index: 1;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
 }

@@ -38,17 +38,17 @@ app.get("/member", (req, res) => {
 })
 
 app.get("/top", (req, res) => {
-    let desc = "";
-    if( req.query.desc ) desc = " desc ";
-    let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by 初週売上" + desc + " limit " + req.query.pop + ";";
-    db.serialize( () => {
-        db.all(sql, (error, data) => {
-            if( error ) {
-                res.render('show', {mes:"エラーです"});
-            }
-            res.render('db', {data:data});
-        })
+  let desc = "";
+  if( req.query.desc ) desc = " desc ";
+  let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by 初週売上" + desc + " limit " + req.query.pop + ";";
+  db.serialize( () => {
+    db.all(sql, (error, data) => {
+      if( error ) {
+        res.render('show', {mes:"エラーです"});
+      }
+      res.render('db', {data:data});
     })
+  })
 })
 
 app.get("/sear", (req, res) => {
