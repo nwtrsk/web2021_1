@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({extend: true}));
 
 app.get("/", (req, res) => {
-  const message = "こんにちは乃木坂46です";
+  const message = "こんにちは坂道グループです";
   res.render('show', {mes:message});
 });
 
