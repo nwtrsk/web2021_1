@@ -91,7 +91,7 @@
 .btn-squre1:hover {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
-  boeder-buttom: none;
+  border-bottom: none;
 }
 
 .btn-squre2{
@@ -106,7 +106,7 @@
 .btn-squre2:hover {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
-  boeder-buttom: none;
+  border-bottom: none;
 }
 
 .btn-squre3{
@@ -121,7 +121,7 @@
 .btn-squre3:hover {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
-  boeder-buttom: none;
+  border-bottom: none;
 }
 .titlesin {
   display: inline-block;
