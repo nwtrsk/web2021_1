@@ -3,14 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>検索</title>
+    <link rel="stylesheet" href="/public/style.css">
   </head>
   <body>
-    <h2>初週売上順位の検索</h2>
+    <h2>売上順位の検索</h2>
     <form action="/top">
-    <label for="desc">大きい順</label>
-    <input type="checkbox" name="desc" id="desc">
-    <label for="pop">表示数</label>
-    <input type="number" name="pop" id="pop">
+    <div class="check">
+      <input type="checkbox" name="desc" id="desc">
+      <label for="desc">大きい順</label>
+    </div>
+    <div class="num">
+      <label for="pop">表示数</label>
+      <input type="number" name="pop" id="pop">
+    </div>
+    <div class="radio">
+      <label for="date">初日</label>
+      <input type="radio" name="sales" value="初日売上">
+      <label for="week">初週</label>
+      <input type="radio" name="sales" value="初週売上">
+    </div>
     <input type="submit" value="送信">
   </body>
 </html>

@@ -172,3 +172,6 @@
   border-color: transparent #fff transparent transparent;
   border-style: solid;
 }
+label{
+  font-size: 20px;
+}
