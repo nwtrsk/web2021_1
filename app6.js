@@ -38,10 +38,10 @@ app.get("/member", (req, res) => {
 })
 
 app.get("/top", (req, res) => {
-  console.log(req.query.sales);
+  //console.log(req.query.sales);
   let desc = "";
   if( req.query.desc ) desc = " desc ";
-  let sql = "select id, シングル名, 発売日, 初日売上, 初週売上, センター from single order by "+ req.query.sales + desc + " limit " + req.query.pop + ";";
+  let sql = "select single.id, single.シングル名, single.発売日, single.初日売上, single.初週売上, member.名前 from single,member where single.センター = member.id order by "+ req.query.sales + desc + " limit " + req.query.pop + ";";
   db.serialize( () => {
     db.all(sql, (error, data) => {
       if( error ) {

@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Show message</title>
+  <title>売上情報</title>
+  <link rel="stylesheet" href="/public/style.css">
 </head>
 <body>
-  <h2>シングルごとの売上</h2>
-  <table border=1>
+  <h2 class="titlesal">シングルごとの売上</h2>
+  <table border=1 class="table">
     <tr>
       <th>id</th>
       <th>シングル名</th>
@@ -22,7 +23,7 @@
         <td><%= row.発売日 %></td>
         <td><%= row.初日売上 %></td>
         <td><%= row.初週売上 %></td>
-        <td><%= row.センター %></td>
+        <td><%= row.名前 %></td>
         </tr>
       <% } %>
   </table>

@@ -93,7 +93,6 @@
   transform: translateY(4px);
   border-bottom: none;
 }
-
 .btn-squre2{
   display: inline-block;
   padding: 0.5em 1em;
@@ -108,7 +107,6 @@
   transform: translateY(4px);
   border-bottom: none;
 }
-
 .btn-squre3{
   display: inline-block;
   padding: 0.5em 1em;
@@ -173,6 +171,31 @@
   border-style: solid;
 }
 
+.titlesal {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  padding: 0 40px 0 18px;
+  font-size: 18px;
+  background: #94cbf5;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+.titlesal:after {
+  position: absolute;
+  content: '';
+  z-index: 1;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+
 label{
   font-size: 20px;
 }
@@ -215,7 +238,7 @@ label{
     transform: rotate(-45deg);
     border-bottom: 3px solid;
     border-left: 3px solid;
-    border-color:  #d494ff; 
+    border-color:  #ff669c; 
 }
 
 input[type="radio"] {
@@ -236,13 +259,13 @@ input[type="radio"] {
   }
   input[type="radio"]::before {
     background-color: #fff;
-    border: 1px solid #d6d6d6;
+    border: 1px solid #000000;
     height: 20px;
     width: 20px;
     left: 0px;
   }
   input[type="radio"]::after {
-    background-color: #9eaeff;
+    background-color: #ff669c;
     opacity: 0;
     height: 14px;
     width: 14px;
@@ -251,3 +274,18 @@ input[type="radio"] {
   input[type="radio"]:checked::after {
     opacity: 1;
   }
+
+.sintable th{
+  border-color: #000000;
+  background-color: #f9e5ff;
+}
+
+.memtable th{
+  border-color: #000;
+  background-color: #d6e2ff;
+}
+
+.table th{
+  border-color: #000;
+  background-color: #d6efff;
+}
