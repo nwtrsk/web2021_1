@@ -86,7 +86,7 @@ app.get("/mem", (req, res) => {
 app.get("/db/:id", (req,res) => {
   console.log(req.params);
   db.serialize( () => {
-    db.all("select id, シングル名, 発売日, 初日売上, 初週売上, センター from single where id =" + req.params.id + ";",(error,row) => {
+    db.all("select single.id, single.シングル名, single.発売日, single.初日売上, single.初週売上, member.名前 from single inner join member on single.センター = member.id where single.id =" + req.params.id + ";",(error,row) => {
       if(error){
         res.render('show',{mes:"エラーです"});
       }

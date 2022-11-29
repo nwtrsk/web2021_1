@@ -212,9 +212,13 @@
   border-style: solid;
 }
 
-label{
+.label{
   font-size: 20px;
 }
+.text {
+　background: linear-gradient(transparent 20%, #ee687c);
+}
+
 
 .check input[type="checkbox"]{
     display: none;
