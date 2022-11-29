@@ -56,7 +56,7 @@ app.get("/sear", (req, res) => {
     //console.log(req.query.pop);    // ①
     let desc = "";
     if( req.query.desc ) desc = " desc";
-    let sql = "select id, シングル名, 発売日, cast(初日売上 as real) * 100 / cast(初週売上 as real) as result, センター from single order by result" + desc + " limit " + req.query.pop + ";";
+    let sql = "select single.id, single.シングル名, single.発売日, cast(single.初日売上 as real) * 100 / cast(single.初週売上 as real) as result, member.名前 from single,member where single.センター = member.id order by result" + desc + " limit " + req.query.pop + ";";
     //console.log(sql);    // ②
     db.serialize( () => {
         db.all(sql, (error, data) => {
