@@ -153,22 +153,6 @@ app.post("/update",(req,res) => {
   console.log(req.body);
 })
 
-app.post("/updated",(req,res) => {
-  let sql = 'update grad set 卒業= '+ req.body.inf +' where id= '+ req.body.id +';';
-  console.log(sql);
-  db.serialize(() => {
-    db.run(sql,(error,row) =>{
-      console.log(error);
-      if(error){
-        res.render('show',{mes:"エラーです"});
-      }
-      res.render('show',{mes:"成功です"});
-    });
-  });
-  console.log(req.body);
-})
-
-
 app.listen(80, () => console.log("Example app listening on port 80!"));
 app.use(function(req, res, next) {
   res.status(404).send('ページが見つかりません');
