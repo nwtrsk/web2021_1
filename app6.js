@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
   res.render('show', {mes:message});
 });
 
+
 app.get("/single", (req, res) => {
   db.serialize( () => {
         db.all("select single.id, single.シングル名, single.発売日, single.初日売上, single.初週売上, member.名前 from single, member where single.センター= member.id ;", (error, row) => {
@@ -28,7 +29,7 @@ app.get("/single", (req, res) => {
 
 app.get("/member", (req, res) => {
     db.serialize( () => {
-        db.all("select id,名前,期生,生年月日,出身,選抜数,参加シングル数 from member;", (error, row) => {
+        db.all("select member.id,member.名前,member.期生,member.生年月日,member.出身,member.選抜数,member.参加シングル数 from member;", (error, row) => {
             if( error ) {
                 res.render('show', {mes:"エラーです"});
             }
@@ -116,7 +117,7 @@ app.post("/singleadd",(req,res) => {
       if(error){
         res.render('show',{mes:"エラーです"});
       }
-      res.render('show',{mes:"成功です"});
+      res.redirect('single');
     });
   });
   console.log(req.body);
@@ -131,11 +132,42 @@ app.post("/memberadd",(req,res) => {
       if(error){
         res.render('show',{mes:"エラーです"});
       }
-      res.render('show',{mes:"成功です"});
+      res.redirect('member');
     });
   });
   console.log(req.body);
 });
+
+app.post("/update",(req,res) => {
+  let sql = 'update member set 選抜数= '+ req.body.selnum +',参加シングル数= '+ req.body.parnum +' where id= '+ req.body.id +';';
+  console.log(sql);
+  db.serialize(() => {
+    db.run(sql,(error,row) =>{
+      console.log(error);
+      if(error){
+        res.render('show',{mes:"エラーです"});
+      }
+      res.redirect('member');
+    });
+  });
+  console.log(req.body);
+})
+
+app.post("/updated",(req,res) => {
+  let sql = 'update grad set 卒業= '+ req.body.inf +' where id= '+ req.body.id +';';
+  console.log(sql);
+  db.serialize(() => {
+    db.run(sql,(error,row) =>{
+      console.log(error);
+      if(error){
+        res.render('show',{mes:"エラーです"});
+      }
+      res.render('show',{mes:"成功です"});
+    });
+  });
+  console.log(req.body);
+})
+
 
 app.listen(80, () => console.log("Example app listening on port 80!"));
 app.use(function(req, res, next) {
