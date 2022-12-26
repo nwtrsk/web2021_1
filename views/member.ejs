@@ -16,6 +16,7 @@
       <th>出身</th>     
       <th>選抜数</th>
       <th>参加シングル数</th>
+      <th>卒業</th>
     </tr>
     <% for( let row of data ) { %>
       <tr>
@@ -26,6 +27,7 @@
         <td><%= row.出身 %></td>
         <td><%= row.選抜数 %></td>
         <td><%= row.参加シングル数 %></td>
+        <td><%= row.済未 %></td>
       </tr>
     <% } %>
   </table>

@@ -5,7 +5,7 @@ const db = new sqlite3.Database('test3.db');
 let schema = `
 create table grad(
   id integer primary key,
-  卒業 text not null
+  済未 text not null
 );
 `
 
@@ -15,6 +15,6 @@ db.serialize( () => {
 			console.log('Error: ', error );
 			return;
 		}
-		console.log( "テーブルを作成しました" );
+		console.log( "テーブルを追加しました" );
 	});
 });
