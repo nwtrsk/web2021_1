@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('test3.db');
 
 let sql = `
-update member set 卒業 = 1 where id = 2;
+update member set 卒業 = 2 where id = 44;
 `
 
 db.serialize( () => {

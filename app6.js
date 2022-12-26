@@ -29,7 +29,7 @@ app.get("/single", (req, res) => {
 
 app.get("/member", (req, res) => {
     db.serialize( () => {
-        db.all("select member.id, member.名前, member.期生, member.生年月日, member.出身, member.選抜数, member.参加シングル数, grad.済未 from member,grad where memeber.卒業 = grad.id;", (error, row) => {
+        db.all("select member.id, member.名前, member.期生, member.生年月日, member.出身, member.選抜数, member.参加シングル数, grad.済未 from member, grad where member.卒業 = grad.id;", (error, row) => {
             if( error ) {
                 res.render('show', {mes:"エラーです"});
             }
@@ -124,7 +124,7 @@ app.post("/singleadd",(req,res) => {
 });
 
 app.post("/memberadd",(req,res) => {
-  let sql = 'insert into member(名前,期生,生年月日,出身,選抜数,参加シングル数)values("'+ req.body.name +'",' + req.body.period +',"'+ req.body.birth +'","'+ req.body.from +'",'+ req.body.selnum +','+ req.body.parnum +');'
+  let sql = 'insert into member(名前,期生,生年月日,出身,選抜数,参加シングル数,卒業)values("'+ req.body.name +'",' + req.body.period +',"'+ req.body.birth +'","'+ req.body.from +'",'+ req.body.selnum +','+ req.body.parnum +' ,'+ req.body.grad +');'
   console.log(sql);
   db.serialize(() => {
     db.run(sql,(error,row) =>{
