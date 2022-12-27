@@ -73,7 +73,7 @@ app.get("/sear", (req, res) => {
 app.get("/mem", (req, res) => {
     let desc = "";
     if( req.query.desc ) desc = " desc";
-    let sql = "select id, 名前, 期生, 生年月日, 出身, cast(選抜数 as real) * 100 / cast(参加シングル数 as real) as result from member where member.卒業 = 1 order by result" + desc + "limit" + req.query.pop + ";";
+    let sql = " select id, 名前, 期生, 生年月日, 出身, cast(選抜数 as real) * 100 / cast(参加シングル数 as real) as result from member where member.卒業 = " + req.query.grad + " order by result " + desc + " limit " + req.query.pop + ";";
     db.serialize( () => {
         db.all(sql, (error, data) => {
             if( error ) {
